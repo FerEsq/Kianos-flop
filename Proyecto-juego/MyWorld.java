@@ -8,12 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    public static int puntos = 0;
-    public static int cont = 6;
+    //variables estaticas para contadores
+    public static int puntos = 0; //puntaje = 0 al iniciar
+    public static int cont = 6; //se crean 6 camarones limpios siempre
     
     //Constructor for objects of class MyWorld.
 
-    public MyWorld()
+    public MyWorld() //al iniciar el mundo (no hay necesidad de darle run)
     {    
         super(600, 400, 1); 
         prepare();
@@ -21,19 +22,21 @@ public class MyWorld extends World
         camarones_E();
     }
     
-    public void act()
+    public void act() //al darle a run
     {
+        // instancia los corazones
         Heart heart = new Heart();
         addObject(heart,460,30);
         Heart heart2 = new Heart();
         addObject(heart2,430,30);
         Heart heart3 = new Heart();
         addObject(heart3,400,30);
-        showText("Score: " + puntos, 530, 25);
+        showText("Score: " + puntos, 530, 25); //muestra el punteo
+        // si se acaban los camarones
         if (cont == 0)
         {
-            cont = 6;
-            camarones_L();
+            cont = 6; //el contador se reinicia
+            camarones_L(); //genera otros 6 camarones
             camaron_EE();
         }
     }
@@ -44,7 +47,7 @@ public class MyWorld extends World
         return num + ini;
     }
         
-    private void prepare()
+    private void prepare() //prepara el mundo (instancia los camarones y a kiano, ademas de colocarlo)
     {
         Shrimp_poisoned shrimp_poisoned = new Shrimp_poisoned();
         Shrimp_clean shrimp_clean = new Shrimp_clean();
@@ -52,29 +55,29 @@ public class MyWorld extends World
         addObject(kiano,45,45);
     }  
     
-    public void camarones_L()
+    public void camarones_L() //generación random de camarones limpios
     {
-        for (int i = 0; i < 6; i++) //generación random de camarones limpios
+        for (int i = 0; i < 6; i++) //genera 6
         {
             int xc = RND(75,550);
             int yc = RND(75,350);
             addObject(new Shrimp_clean(), xc, yc);
-        } //genera 6
+        } 
     }
-    public void camarones_E()
+    public void camarones_E() //generación random de camarones envenenados
     {
-        for (int i = 0; i < 4; i++) //generación random de camarones envenenados
+        for (int i = 0; i < 4; i++) //genera 4 
         {
             int xc = RND(75,550);
             int yc = RND(75,350);
             addObject(new Shrimp_poisoned(), xc, yc);
-        } //genera 4 
+        } 
     }
-    public void camaron_EE()
+    public void camaron_EE() //genera 1 camaron envenenado extra para la siguiente ronda
     {
         int xc = RND(75,550);
         int yc = RND(75,350);
-        addObject(new Shrimp_poisoned(), xc, yc); //genera 1
+        addObject(new Shrimp_poisoned(), xc, yc);
     }
     
 }

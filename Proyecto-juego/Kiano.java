@@ -8,11 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Kiano extends Actor
 {
-    /**
-     * Act - do whatever the Kiano wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    MyWorld mundo;
+    MyWorld mundo; //variable para referenciar las variables estaticas de MyWorld (mundo)
     public void act()
     {
         movimiento();
@@ -57,8 +53,8 @@ public class Kiano extends Actor
             World world;
             world = getWorld();
             world.removeObject(camaronL); //desaparece
-            mundo.cont--;
-            mundo.puntos++;
+            mundo.cont--; //un camaron limpio menos
+            mundo.puntos++; //un punto mas
         }
     }
         
