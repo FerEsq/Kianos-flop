@@ -12,37 +12,54 @@ public class Kiano extends Actor
      * Act - do whatever the Kiano wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    MyWorld mundo;
     public void act()
     {
         movimiento();
+        comer();
     }
     
+    //coordenadas de kiano
     int x = 45;
     int y = 45;
     
-    public void movimiento() //método mueve
+    public void movimiento() //método para mover a kiano
     {        
-        if (Greenfoot.isKeyDown("left"))
+        if (Greenfoot.isKeyDown("left")) //al presionar la flecha izquierda
         {
             setLocation(x, y);
-            x -= 2;
+            x -= 2; //se mueve dos a la izquierda
         }
-        if (Greenfoot.isKeyDown("right"))
+        if (Greenfoot.isKeyDown("right")) //al presionar la flecha derecha
         {
             setLocation(x, y);
-            x += 2;
+            x += 2; //se mueve dos a la derecha
         }
-        if (Greenfoot.isKeyDown("up"))
+        if (Greenfoot.isKeyDown("up")) //al presionar la flecha arriba
         {
             setLocation(x, y);
-            y -= 2;
+            y -= 2; //se mueve dos hacia arriba
         }
-        if (Greenfoot.isKeyDown("down"))
+        if (Greenfoot.isKeyDown("down")) //al presionar la flecha abajo
         {
             setLocation(x, y);
-            y += 2;
+            y += 2; //se mueve dos hacia abajo
+        }
+    }
+    
+    public void comer() //método comer camaron limpio
+    {
+        //si kiano esta lejos del camaron
+        Actor camaronL;
+        camaronL = getOneObjectAtOffset(0,0, Shrimp_clean.class);
+        if (camaronL != null) //si kiano toca el camaron
+        {
+            World world;
+            world = getWorld();
+            world.removeObject(camaronL); //desaparece
+            mundo.cont--;
+            mundo.puntos++;
         }
     }
         
-
 }
