@@ -1,5 +1,5 @@
 #Greenfoot project file
-class.Kiano.image=Kiano.png
+class.Kiano.image=Kiano2.png
 class.MyWorld.image=Grass.png
 class.Shrimp_clean.image=Clean\ shrimp.png
 class.Shrimp_poisoned.image=Poisoned\ shrimp.png
@@ -12,10 +12,10 @@ dependency2.type=UsesDependency
 dependency3.from=MyWorld
 dependency3.to=Kiano
 dependency3.type=UsesDependency
-editor.fx.0.height=737
-editor.fx.0.width=814
-editor.fx.0.x=100
-editor.fx.0.y=100
+editor.fx.0.height=694
+editor.fx.0.width=1294
+editor.fx.0.x=-7
+editor.fx.0.y=-7
 height=694
 package.numDependencies=3
 package.numTargets=4

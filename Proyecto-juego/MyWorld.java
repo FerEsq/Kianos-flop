@@ -19,10 +19,18 @@ public class MyWorld extends World
         super(600, 400, 1); 
         prepare();
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
+    
+    public int RND(int ini,int fin)
+    {
+        int num = Greenfoot.getRandomNumber(fin - ini +1);
+        return num + ini;
+    }
+    
     private void prepare()
     {
         Shrimp_poisoned shrimp_poisoned = new Shrimp_poisoned();
@@ -31,18 +39,20 @@ public class MyWorld extends World
         addObject(shrimp_clean,323,198);
         Kiano kiano = new Kiano();
         addObject(kiano,74,59);
-        shrimp_clean.setLocation(172,101);
-        shrimp_poisoned.setLocation(132,147);
-        kiano.setLocation(76,82);
-        shrimp_poisoned.setLocation(126,186);
-        shrimp_clean.setLocation(184,52);
-        shrimp_poisoned.setLocation(209,117);
-        shrimp_clean.setLocation(254,58);
-        shrimp_poisoned.setLocation(167,70);
-        shrimp_clean.setLocation(150,127);
-        shrimp_poisoned.setLocation(199,48);
-        shrimp_poisoned.setLocation(179,88);
-        removeObject(shrimp_poisoned);
-        removeObject(shrimp_clean);
+        kiano.setLocation(45,45);
+
+        for (int i = 0; i <= 10; i++)
+        {
+            int xc = RND(70,550);
+            int yc = RND(70,350);
+            addObject(new Shrimp_clean(), xc, yc);
+        }
+
+        for (int i = 0; i <= 6; i++)
+        {
+            int xc = RND(70,550);
+            int yc = RND(70,350);
+            addObject(new Shrimp_poisoned(), xc, yc);
+        }
     }
 }

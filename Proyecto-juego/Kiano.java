@@ -14,6 +14,35 @@ public class Kiano extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        movimiento();
     }
+    
+    int x = 45;
+    int y = 45;
+    
+    public void movimiento() //método mueve
+    {        
+        if (Greenfoot.isKeyDown("left"))
+        {
+            setLocation(x, y);
+            x -= 2;
+        }
+        if (Greenfoot.isKeyDown("right"))
+        {
+            setLocation(x, y);
+            x += 2;
+        }
+        if (Greenfoot.isKeyDown("up"))
+        {
+            setLocation(x, y);
+            y -= 2;
+        }
+        if (Greenfoot.isKeyDown("down"))
+        {
+            setLocation(x, y);
+            y += 2;
+        }
+    }
+        
+
 }
