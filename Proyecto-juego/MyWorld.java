@@ -77,6 +77,7 @@ public class MyWorld extends World
         showText("Score:", 530, 25); //muestra "score"
         puntos = 0; //reinicia el contador de puntos
         corazones = 3; //reinicia los corazones
+        cont = 6; //renicia los camarones
     }  
     
     public void camarones_L() //generación random de camarones limpios
