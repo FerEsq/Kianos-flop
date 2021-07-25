@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Descripci\u00F3n\:\ Clase\ del\ mundo\ del\ juego\ (patio\ de\ Kiano)\r\n\ Programadora\:\ Fernanda\ Esquivel\r\n\ Carn\u00E9\:\ 21542\r\n\ Lenguaje\:\ Java\r\n\ Recursos\:\ Greenfoot\r\n\ Historial\:\ Finalizado\ el\ 24.07.2021\r\n
 comment1.params=
 comment1.target=MyWorld()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=ini\ fin
-comment3.target=int\ RND(int,\ int)
+comment3.target=int\ rnd(int,\ int)
 comment4.params=
 comment4.target=void\ prepare()
 comment5.params=

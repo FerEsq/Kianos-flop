@@ -1,66 +1,90 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Descripción: Clase del mundo del juego (patio de Kiano)
+ * Programadora: Fernanda Esquivel
+ * Carné: 21542
+ * Lenguaje: Java
+ * Recursos: Greenfoot
+ * Historial: Finalizado el 24.07.2021
  */
+
 public class MyWorld extends World
 {
     //variables estaticas para contadores
     public static int puntos = 0; //puntaje = 0 al iniciar
     public static int cont = 6; //se crean 6 camarones limpios siempre
+    public static int corazones = 3; //hay tres vidas (corazones)
     
     //Constructor for objects of class MyWorld.
 
     public MyWorld() //al iniciar el mundo (no hay necesidad de darle run)
     {    
         super(600, 400, 1); 
-        prepare();
-        camarones_L();
-        camarones_E();
+        prepare(); //preparar el mundo
+        camarones_L(); //generar camarones limpios
+        camarones_E(); //generar camarones envenenados
     }
     
     public void act() //al darle a run
     {
-        // instancia los corazones
-        Heart heart = new Heart();
-        addObject(heart,460,30);
-        Heart heart2 = new Heart();
-        addObject(heart2,430,30);
-        Heart heart3 = new Heart();
-        addObject(heart3,400,30);
-        showText("Score: " + puntos, 530, 25); //muestra el punteo
+        showText("" + puntos, 575, 25); //mostrar los puntos
         // si se acaban los camarones
         if (cont == 0)
         {
-            cont = 6; //el contador se reinicia
+            cont = 6; //el contador de camarones se reinicia
             camarones_L(); //genera otros 6 camarones
-            camaron_EE();
+            camaron_EE(); //genera el camaron envenenado extra
+        }
+        if (corazones == 2) //perdió una vida
+        {
+            removeObject(heart3);
+        }
+        if (corazones == 1) //perdió dos vidas
+        {
+            removeObject(heart2);
+        }
+        if (corazones == 0) //perdió las tres vidas
+        {
+            removeObject(heart);
+            addObject(game_over, 295,190);
+            Greenfoot.stop();
         }
     }
     
-    public int RND(int ini,int fin) //función para obtener numeros random dentro de un rango
+    public int rnd(int ini,int fin) //función para obtener numeros random dentro de un rango
     {
         int num = Greenfoot.getRandomNumber(fin - ini +1);
         return num + ini;
     }
+    
+    // instancia de objetos
+    Heart heart = new Heart();
+    Heart heart2 = new Heart();
+    Heart heart3 = new Heart();
+    Kiano kiano = new Kiano();
+    Shrimp_poisoned shrimp_poisoned = new Shrimp_poisoned();
+    Shrimp_clean shrimp_clean = new Shrimp_clean();
+    Game_over game_over = new Game_over();
         
-    private void prepare() //prepara el mundo (instancia los camarones y a kiano, ademas de colocarlo)
+    public void prepare() //prepara el mundo (instancia los camarones y a kiano, ademas de colocarlo)
     {
-        Shrimp_poisoned shrimp_poisoned = new Shrimp_poisoned();
-        Shrimp_clean shrimp_clean = new Shrimp_clean();
-        Kiano kiano = new Kiano();
+        //agregar objetos (kiano y corazones)
         addObject(kiano,45,45);
+        addObject(heart,460,30);
+        addObject(heart2,430,30);
+        addObject(heart3,400,30);
+        showText("Score:", 530, 25); //muestra "score"
+        puntos = 0; //reinicia el contador de puntos
+        corazones = 3; //reinicia los corazones
     }  
     
     public void camarones_L() //generación random de camarones limpios
     {
         for (int i = 0; i < 6; i++) //genera 6
         {
-            int xc = RND(75,550);
-            int yc = RND(75,350);
+            int xc = rnd(75,550);
+            int yc = rnd(75,350);
             addObject(new Shrimp_clean(), xc, yc);
         } 
     }
@@ -68,15 +92,15 @@ public class MyWorld extends World
     {
         for (int i = 0; i < 4; i++) //genera 4 
         {
-            int xc = RND(75,550);
-            int yc = RND(75,350);
+            int xc = rnd(75,550);
+            int yc = rnd(75,350);
             addObject(new Shrimp_poisoned(), xc, yc);
         } 
     }
     public void camaron_EE() //genera 1 camaron envenenado extra para la siguiente ronda
     {
-        int xc = RND(75,550);
-        int yc = RND(75,350);
+        int xc = rnd(75,550);
+        int yc = rnd(75,350);
         addObject(new Shrimp_poisoned(), xc, yc);
     }
     
