@@ -23,6 +23,8 @@ public class MyWorld extends World
     public MyWorld() //al iniciar el mundo (no hay necesidad de darle run)
     {    
         super(600, 400, 1); 
+        setPaintOrder(Title.class, Shrimp_clean.class);
+        addObject(title,300,180);
         prepare(); //preparar el mundo
         camarones_L(); //generar camarones limpios
         camarones_E(); //generar camarones envenenados
@@ -31,7 +33,8 @@ public class MyWorld extends World
     public void act() //al darle a run
     {
         music.playLoop();
-        music.setVolume(35);
+        music.setVolume(45);
+        removeObject(title);
         showText("" + puntos, 575, 25); //mostrar los puntos
         // si se acaban los camarones
         if (cont == 0)
@@ -68,6 +71,7 @@ public class MyWorld extends World
     Heart heart2 = new Heart();
     Heart heart3 = new Heart();
     Kiano kiano = new Kiano();
+    Title title = new Title();
     Shrimp_poisoned shrimp_poisoned = new Shrimp_poisoned();
     Shrimp_clean shrimp_clean = new Shrimp_clean();
     Game_over game_over = new Game_over();

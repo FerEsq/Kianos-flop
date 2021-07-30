@@ -12,7 +12,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Kiano extends Actor
 {
     MyWorld mundo; //variable para referenciar las variables estaticas de MyWorld (mundo)
-    //GreenfootSound nam = new GreenfootSound("Nom.mp3"); //música
     public void act()
     {
         movimiento();
