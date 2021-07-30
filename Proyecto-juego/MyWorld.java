@@ -16,6 +16,8 @@ public class MyWorld extends World
     public static int cont = 6; //se crean 6 camarones limpios siempre
     public static int corazones = 3; //hay tres vidas (corazones)
     
+    GreenfootSound music = new GreenfootSound("Kiano_Song_Full.mp3"); //música
+    
     //Constructor for objects of class MyWorld.
 
     public MyWorld() //al iniciar el mundo (no hay necesidad de darle run)
@@ -28,6 +30,8 @@ public class MyWorld extends World
     
     public void act() //al darle a run
     {
+        music.playLoop();
+        music.setVolume(35);
         showText("" + puntos, 575, 25); //mostrar los puntos
         // si se acaban los camarones
         if (cont == 0)
@@ -49,6 +53,7 @@ public class MyWorld extends World
             removeObject(heart);
             addObject(game_over, 295,190);
             Greenfoot.stop();
+            music.stop();
         }
     }
     
@@ -78,6 +83,7 @@ public class MyWorld extends World
         puntos = 0; //reinicia el contador de puntos
         corazones = 3; //reinicia los corazones
         cont = 6; //renicia los camarones
+        music.stop();
     }  
     
     public void camarones_L() //generación random de camarones limpios
