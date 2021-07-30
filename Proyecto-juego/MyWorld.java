@@ -22,7 +22,7 @@ public class MyWorld extends World
     public MyWorld() //al iniciar el mundo (no hay necesidad de darle run)
     {    
         super(600, 400, 1);
-        setPaintOrder(Title.class, Shrimp_clean.class); //el titulo va sobre los camarones
+        setPaintOrder(Title.class, Game_over.class, Shrimp_clean.class, Shrimp_poisoned.class); //orden de los actores (para que no se sobrepongan)
         addObject(title,300,180); //agregar titulo
         prepare(); //preparar el mundo
         camarones_L(); //generar camarones limpios
