@@ -7,6 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Lenguaje: Java
  * Recursos: Greenfoot
  * Historial: Finalizado el 24.07.2021
+              Modificado el 30.07.2021
  */
 
 public class Kiano extends Actor
